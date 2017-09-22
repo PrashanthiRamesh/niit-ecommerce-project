@@ -10,8 +10,16 @@
 	<properties>
 		<javaee.version>7.0</javaee.version>
 		<junit.version>3.8.1</junit.version>
+		<spring.version>4.3.11.RELEASE</spring.version>
 	</properties>
 	<dependencies>
+
+		<!-- Spring Web MVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 		<!-- JAVA EE API -->
 		<dependency>
