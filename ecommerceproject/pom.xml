@@ -14,7 +14,14 @@
 	</properties>
 	<dependencies>
 
-		<!-- JSTL-->
+		<!-- Link Backend and Frontend -->
+
+		<dependency>
+			<groupId>niitprash</groupId>
+			<artifactId>ecommercebackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
