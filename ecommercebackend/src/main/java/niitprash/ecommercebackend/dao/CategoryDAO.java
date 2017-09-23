@@ -6,6 +6,9 @@ import niitprash.ecommercebackend.dto.Category;
 
 public interface CategoryDAO {
 	
+	//get all categories
 	List<Category> list();
-
+	
+	//get single category based on id
+    Category get(int id);
 }
