@@ -13,6 +13,8 @@
 
 
 	<context:component-scan base-package="niitprash.ecommerceproject.controller" />
+<context:component-scan base-package="niitprash.ecommercebackend.daoImpl" />
+
 
 	<bean id="viewResolver"
 			class="org.springframework.web.servlet.view.InternalResourceViewResolver">

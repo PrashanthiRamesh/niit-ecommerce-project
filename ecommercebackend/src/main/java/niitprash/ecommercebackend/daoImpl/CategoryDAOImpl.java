@@ -23,12 +23,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 		category.setImageUrl("CAT_1.png");
 		categories.add(category);
 		
+		category=new Category();
 		category.setId(2);
 		category.setName("Sports Wear");
 		category.setDescription("Sportswear is an American fashion term originally used to describe separates, but which, since the 1930s, has come to be applied to day and evening fashions of varying degrees of formality that demonstrate a specific relaxed approach to their design, while remaining appropriate for a wide range of social occasions");
 		category.setImageUrl("CAT_2.png");
 		categories.add(category);
 		
+		category=new Category();
 		category.setId(3);
 		category.setName("Casual Wear");
 		category.setDescription("In the European tradition, casual is the dress code that emphasizes comfort and personal expression over presentation, formality and conformity.");
