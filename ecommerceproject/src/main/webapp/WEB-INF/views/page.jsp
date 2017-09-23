@@ -35,6 +35,11 @@
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
+<!-- Bootstrap Theme -->
+
+<%-- <link href="${css}/bootstrap-theme.css" rel="stylesheet"> --%>
+
+
 </head>
 
 <body>
