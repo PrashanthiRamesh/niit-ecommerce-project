@@ -26,6 +26,9 @@
 
 <title>Prash Botique - ${title}</title>
 
+<script>
+	window.menu = '${title}';
+</script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
@@ -42,23 +45,26 @@
 	<c:if test="${userClickHome==true}">
 		<%@include file="home.jsp"%>
 	</c:if>
-	
+
 	<!-- Load Home -->
 	<c:if test="${userClickAbout==true}">
 		<%@include file="about.jsp"%>
 	</c:if>
-	
+
 	<!-- Load Home -->
 	<c:if test="${userClickContact==true}">
 		<%@include file="contact.jsp"%>
 	</c:if>
-	<!-- Footer -->	
+	<!-- Footer -->
 	<%@include file="./shared/footer.jsp"%>
 	<!-- Bootstrap core JavaScript -->
 	<script src="${js}/jquery.js"></script>
 	<script src="${js}/popper.js"></script>
 	<script src="${js}/bootstrap.min.js"></script>
-
+	
+	<!-- JavaScript for active menu -->
+	<script src="${js}/myapp.js"></script>
+	
 </body>
 
 </html>
