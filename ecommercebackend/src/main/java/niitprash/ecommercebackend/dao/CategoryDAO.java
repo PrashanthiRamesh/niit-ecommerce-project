@@ -6,6 +6,8 @@ import niitprash.ecommercebackend.dto.Category;
 
 public interface CategoryDAO {
 	
+	boolean add(Category category);
+	
 	//get all categories
 	List<Category> list();
 	
