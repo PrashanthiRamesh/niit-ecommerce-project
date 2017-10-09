@@ -15,7 +15,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages= {"niitprash.ecommerce.dto"})
+@ComponentScan(basePackages= {"niitprash.ecommercebackend.dto"})
 @EnableTransactionManagement
 public class HibernateConfig {
 
@@ -26,10 +26,10 @@ public class HibernateConfig {
 		private final static String Database_Password="password";
 		
 		
-		//Database Connection- Datasoruce bean
+		//Database Connection- Datasource bean
 		
 		@Bean
-		private DataSource getDataSource() {
+		public DataSource getDataSource() {
 			BasicDataSource datasource= new BasicDataSource();
 			datasource.setDriverClassName(Database_Driver);
 			datasource.setUrl(Database_Url);
@@ -53,7 +53,7 @@ public class HibernateConfig {
 			Properties properties=new Properties();
 			properties.put("hibernate.dialect", Database_Dialect);
 			properties.put("hibernate.show_sql", "true");
-			properties.put("hibernate.formate_sql", "true");
+			properties.put("hibernate.format_sql", "true");
 			
 			return properties;
 		}
