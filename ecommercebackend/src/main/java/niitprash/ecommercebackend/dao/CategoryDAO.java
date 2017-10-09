@@ -6,11 +6,22 @@ import niitprash.ecommercebackend.dto.Category;
 
 public interface CategoryDAO {
 	
-	boolean add(Category category);
+	//get single category based on id
+    Category get(int id);
 	
 	//get all categories
 	List<Category> list();
 	
-	//get single category based on id
-    Category get(int id);
+	//adding a new category
+    boolean add(Category category);
+    
+  //updating a category
+    boolean update(Category category);
+    
+  //deleting a category
+    boolean delete(Category category);
+	
+
+	
+	
 }
