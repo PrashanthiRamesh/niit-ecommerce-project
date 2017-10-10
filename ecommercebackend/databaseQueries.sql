@@ -38,6 +38,24 @@ CREATE TABLE product (
 	CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_detail(id),	
 );	
 
+CREATE TABLE supplier (
+	id IDENTITY,
+	name VARCHAR(50),
+	address VARCHAR(255),
+	city VARCHAR(30),
+	region VARCHAR(30),
+	postalcode INT,
+	country VARCHAR(30),
+	phone VARCHAR(15),
+	is_active BOOLEAN,
+	CONSTRAINT pk_supplier_id PRIMARY KEY (id),
+);	
+
+-- add 3 suppliers
+INSERT INTO supplier (name, address, city, region, postalcode, country, phone, is_active) VALUES ('Vogue','Main Street Garden St', 'Coimbatore','TN','641044','India','2564856',true);
+INSERT INTO supplier (name, address, city, region, postalcode, country, phone, is_active) VALUES ('Max','No 45 Winterfell Cross rd', 'Banglore','Karnataka','563254','India','45689525',true);
+INSERT INTO supplier (name, address, city, region, postalcode, country, phone, is_active) VALUES ('Drapers','2GF 24A Bravos DragonStone', 'Cochin','Kerala','458756','India','2589654',true);
+
 -- adding three categories
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Western Wear', 'Western wear is a category of mens and womens clothing which derives its unique style from the clothes worn in the 19th-century American West', 'CAT_1.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Sports Wear', 'Sportswear is an American fashion term originally used to describe separates, but which, since the 1930s, has come to be applied to day and evening fashions of varying degrees of formality', 'CAT_2.png', true);
