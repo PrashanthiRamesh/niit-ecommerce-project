@@ -94,7 +94,7 @@ public class CategoryTestCase {
 				"Casual wear is a category of men's and women's clothing which derives its unique style from the clothes worn in the 19th-century American West");
 		category.setImageUrl("CAT_1.png");
 
-		assertEquals("Success :)", true, categoryDAO.add(category));
+		assertEquals("Bug :(", true, categoryDAO.add(category));
 
 		category = new Category();
 
@@ -102,20 +102,20 @@ public class CategoryTestCase {
 		category.setDescription("Ethnic wear is a category of men's and women's clothing which derives its unique style from the clothes worn in the 19th-century American West");
 		category.setImageUrl("CAT_2.png");
 
-		assertEquals("Add Success :)", true, categoryDAO.add(category));
+		assertEquals("Bug :(", true, categoryDAO.add(category));
 
 		// fetching and updating the category
 		category = categoryDAO.get(2);
 
 		category.setName("Traditional Wear");
 
-		assertEquals("Update Success :)", true, categoryDAO.update(category));
+		assertEquals("Update Bug :(", true, categoryDAO.update(category));
 
 		// delete the category
-		assertEquals("Delete Success", true, categoryDAO.delete(category));
+		assertEquals("Delete Bug :(", true, categoryDAO.delete(category));
 
 		// fetching the list
-		assertEquals("List Success", 1, categoryDAO.list().size());
+		assertEquals("List Bug :(", 1, categoryDAO.list().size());
 
 	}
 
