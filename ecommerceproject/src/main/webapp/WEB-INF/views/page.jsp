@@ -7,7 +7,7 @@
 
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
-<spring:url var="images" value="/resources/images" />
+<spring:url var="images" value="/resources/img" />
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
@@ -63,6 +63,11 @@
 			<!-- Load Contact-->
 			<c:if test="${userClickContact==true}">
 				<%@include file="contact.jsp"%>
+			</c:if>
+			
+				<!-- Load Cart-->
+			<c:if test="${userClickCart==true}">
+				<%@include file="cart.jsp"%>
 			</c:if>
 			
 			<!-- Load All / Category -->

@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import niitprash.ecommercebackend.dao.SupplierDAO;
-import niitprash.ecommercebackend.dto.Product;
 import niitprash.ecommercebackend.dto.Supplier;
 
 public class SupplierTestCase {
