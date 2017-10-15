@@ -28,16 +28,24 @@
 
 <script>
 	window.menu = '${title}';
+	
+	window.contextRoot='${contextRoot}'
 </script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="${css}/myapp.css" rel="stylesheet">
 
 <!-- Bootstrap Theme -->
 
 <%-- <link href="${css}/bootstrap-theme.css" rel="stylesheet"> --%>
+
+<!-- Bootstrap Datatable -->
+
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="${css}/myapp.css" rel="stylesheet">
+
 
 
 </head>
@@ -64,15 +72,22 @@
 			<c:if test="${userClickContact==true}">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
-				<!-- Load Cart-->
+
+			<!-- Load Cart-->
 			<c:if test="${userClickCart==true}">
 				<%@include file="cart.jsp"%>
 			</c:if>
-			
+
 			<!-- Load All / Category -->
-			<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true }">
+			<c:if
+				test="${userClickAllProducts==true or userClickCategoryProducts==true }">
 				<%@include file="listProducts.jsp"%>
+			</c:if>
+			
+			<!-- Single Product -->
+			<c:if
+				test="${userClickShowProduct==true}">
+				<%@include file="singleProduct.jsp"%>
 			</c:if>
 
 		</div>
@@ -82,7 +97,11 @@
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/popper.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
-
+		<!-- Datatable plugin -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		<!-- Datatable bootstrap -->
+		<script src="${js}/jquery.dataTables.js"></script>
+		
 		<!-- JavaScript for active menu -->
 		<script src="${js}/myapp.js"></script>
 	</div>
