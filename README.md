@@ -8,3 +8,4 @@ OrderItem Many----1 Order Many ----1 User 1-----1 Cart 1----Many CartItem 1---1 
 OrderItem 1----1 Product
 Supplier
 Admin
+

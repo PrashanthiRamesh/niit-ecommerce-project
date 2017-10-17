@@ -16,6 +16,11 @@ $(function() {
 		$('#cart').addClass('active');
 
 		break;
+		
+	case 'Manage Products':
+		$('#manageProducts').addClass('active');
+
+		break;
 	default:
 		if (menu == "Home")
 			break;

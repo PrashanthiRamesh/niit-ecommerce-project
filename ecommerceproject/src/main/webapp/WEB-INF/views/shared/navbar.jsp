@@ -19,9 +19,12 @@
 
 				<li class="nav-item" id="listProducts"><a class="nav-link"
 					href="${contextRoot }/show/all/products">Products</a></li>
-					
+
 				<li class="nav-item" id="cart"><a class="nav-link"
 					href="${contextRoot }/show/cart">Cart</a></li>
+
+				<li class="nav-item" id="manageProducts"><a class="nav-link"
+					href="${contextRoot }/manage/products">Manage Products</a></li>
 			</ul>
 		</div>
 	</div>
