@@ -9,4 +9,6 @@ OrderItem 1----1 Product
 Supplier
 Admin
 
-img
+
+[![ecommerce homepage](https://github.com/PrashanthiRamesh/niit-ecommerce-project/blob/master/ecommerceproject/src/main/webapp/assets/img/readme1.png)]
+
