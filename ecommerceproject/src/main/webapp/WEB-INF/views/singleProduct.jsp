@@ -25,7 +25,7 @@
 
 		<div class="thumbnail">
 
-			<img src="${images}/${product.code}.jpg" class="img-t humbnail" />
+			<img src="${images}/${product.code}.jpg" class="img-thumbnail" />
 
 		</div>
 	</div>

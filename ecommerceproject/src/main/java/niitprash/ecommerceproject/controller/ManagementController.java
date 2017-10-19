@@ -2,10 +2,14 @@ package niitprash.ecommerceproject.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,8 +56,17 @@ public class ManagementController {
 	
 	//POST - to store products in db
 	@RequestMapping(value="/products", method=RequestMethod.POST)
-	public String storeProducts(@ModelAttribute("product") Product mProduct) {
+	public String storeProducts(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model) {
 		
+		//validate product attributes
+		
+		if(results.hasErrors()) {
+	
+			model.addAttribute("userClickManageProducts",true);
+			model.addAttribute("title","Manage Products");
+			model.addAttribute("message", "Validation Failed !");
+			return "page";
+		}
 		logger.info(mProduct.toString());
 		productDAO.add(mProduct);
 	
