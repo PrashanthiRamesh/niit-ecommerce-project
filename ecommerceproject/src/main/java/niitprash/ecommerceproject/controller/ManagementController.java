@@ -2,6 +2,7 @@ package niitprash.ecommerceproject.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.hibernate.annotations.common.util.impl.LoggerFactory;
@@ -20,6 +21,7 @@ import niitprash.ecommercebackend.dao.CategoryDAO;
 import niitprash.ecommercebackend.dao.ProductDAO;
 import niitprash.ecommercebackend.dto.Category;
 import niitprash.ecommercebackend.dto.Product;
+import niitprash.ecommerceproject.util.FileUploadUtility;
 
 @Controller
 @RequestMapping("/manage")
@@ -56,7 +58,7 @@ public class ManagementController {
 	
 	//POST - to store products in db
 	@RequestMapping(value="/products", method=RequestMethod.POST)
-	public String storeProducts(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model) {
+	public String storeProducts(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model, HttpServletRequest request) {
 		
 		//validate product attributes
 		
@@ -69,6 +71,10 @@ public class ManagementController {
 		}
 		logger.info(mProduct.toString());
 		productDAO.add(mProduct);
+		
+		if(!mProduct.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(request,  mProduct.getFile(), mProduct.getCode());
+		}
 	
 		return "redirect:/manage/products?operation=product";
 	}

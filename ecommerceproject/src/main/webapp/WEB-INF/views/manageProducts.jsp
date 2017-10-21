@@ -1,4 +1,4 @@
-
+ 
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <div class="container">
 
@@ -17,14 +17,14 @@
 
 			<div class="card card-inverse card-danger text-center">
 				<div class="card-header">
-
+ 
 					<h4>Product Management</h4>
 
 				</div>
 				<div class="card-block">
 
 					<sf:form class="form-horizontal" modelAttribute="product"
-						action="${contextRoot}/manage/products" method="POST">
+						action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
 
 						<div class="form-group">
 
@@ -64,6 +64,14 @@
 							</div>
 						</div>
 
+						
+						<div class="form-group">
+							<div class="col-md-8">
+
+								<sf:input type="file" path="file" id="file" class="form-control" />
+							</div>
+						</div>
+						
 						<div class="form-group">
 							<div class="col-md-8">
 
