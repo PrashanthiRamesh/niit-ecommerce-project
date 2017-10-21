@@ -103,7 +103,21 @@ public class PageController {
 			return mv;
 		}
 		
+		@RequestMapping(value= {"/login"})
+		public ModelAndView login() {
+			ModelAndView mv=new ModelAndView("login");
+			mv.addObject("title","Login");
+			
+			return mv;
+		}
 		
+		@RequestMapping(value= {"/logout"})
+		public ModelAndView logout() {
+			ModelAndView mv=new ModelAndView("logout");
+			mv.addObject("title","Logged Out!");
+			
+			return mv;
+		}
 		
 		
 }

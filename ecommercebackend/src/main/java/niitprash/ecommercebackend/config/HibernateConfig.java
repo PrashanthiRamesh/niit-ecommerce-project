@@ -28,7 +28,7 @@ public class HibernateConfig {
 		
 		//Database Connection- Datasource bean
 		
-		@Bean
+		@Bean("dataSource")
 		public DataSource getDataSource() {
 			BasicDataSource datasource= new BasicDataSource();
 			datasource.setDriverClassName(Database_Driver);
