@@ -27,7 +27,7 @@
 					href="${contextRoot }/manage/products">Manage Products</a></li>
 
 				<li class="nav-item" id="logout"><a class="nav-link"
-					href="${contextRoot}/logout">Logout</a></li>
+					href="${contextRoot}/perform-logout">Logout</a></li>
 
 			</ul>
 		</div>

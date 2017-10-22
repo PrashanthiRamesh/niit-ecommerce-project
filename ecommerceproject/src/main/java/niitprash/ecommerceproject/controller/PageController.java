@@ -1,9 +1,17 @@
 package niitprash.ecommerceproject.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.configurers.SecurityContextConfigurer;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import niitprash.ecommercebackend.dao.CategoryDAO;
@@ -104,19 +112,23 @@ public class PageController {
 		}
 		
 		@RequestMapping(value= {"/login"})
-		public ModelAndView login() {
+		public ModelAndView login(@RequestParam(name="logout", required=false)String logout) {
 			ModelAndView mv=new ModelAndView("login");
 			mv.addObject("title","Login");
-			
+			if(logout!=null) {
+				mv.addObject("logout","User logged out!");
+			}
 			return mv;
 		}
 		
-		@RequestMapping(value= {"/logout"})
-		public ModelAndView logout() {
-			ModelAndView mv=new ModelAndView("logout");
-			mv.addObject("title","Logged Out!");
+		@RequestMapping(value= {"/perform-logout"})
+		public String logout(HttpServletRequest request, HttpServletResponse response) {
+			Authentication auth=SecurityContextHolder.getContext().getAuthentication();
 			
-			return mv;
+			if(auth!=null) {
+				new  SecurityContextLogoutHandler().logout(request, response, auth);
+			}
+			return "redirect:/login?logout";
 		}
 		
 		

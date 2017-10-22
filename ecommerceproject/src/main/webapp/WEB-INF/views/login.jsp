@@ -67,8 +67,15 @@
 
 		<div class="content">
 
+			<c:if test="${not empty logout}">
+				<div class="row">
+					<div class="col-xs-12 col-md-offset-2 col-md-8">
+						<div class="alert alert-success">${logout}</div>
+					</div>
+				</div>
+			</c:if>
 			<div class="row">
-				 <div class="col-6 col-md-4"></div>
+				<div class="col-6 col-md-4"></div>
 				<div class="col-6 col-md-4">
 
 					<div class="card">
@@ -81,31 +88,31 @@
 							<form action="${contextRoot}/login" method="POST"
 								class="form-horizontal" id="loginForm">
 								<div class="form-group">
-									
+
 									<div class="col-md-8">
-									<label></label>
-										<input type="text" name="username" id="username"
-										placeholder="email"	class="form-control" />
+										<label></label> <input type="text" name="username"
+											id="username" placeholder="email" class="form-control" />
 									</div>
 								</div>
 								<div class="form-group">
-									
+
 									<div class="col-md-8">
 										<input type="password" name="password" id="password"
-										placeholder="password"	class="form-control" />
+											placeholder="password" class="form-control" />
 									</div>
 								</div>
-								 
+
 								<div class="form-group">
 									<div class="col-md-offset-4 col-md-8">
-										<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-										<input type="submit" value="Login" class="btn btn-primary"/>
+										<input type="hidden" name="${_csrf.parameterName}"
+											value="${_csrf.token}" /> <input type="submit" value="Login"
+											class="btn btn-primary" />
 									</div>
 								</div>
-								
+
 								<div class="form-group">
 									<div class="col-md-offset-4 col-md-8">
-									<a href="register.jsp">Register new User</a>
+										<a href="register.jsp">Register new User</a>
 									</div>
 								</div>
 							</form>
