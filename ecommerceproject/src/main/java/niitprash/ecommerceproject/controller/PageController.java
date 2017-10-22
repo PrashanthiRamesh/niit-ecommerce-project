@@ -84,14 +84,7 @@ public class PageController {
 			return mv;
 		}
 		
-		@RequestMapping(value= {"/show/cart"})
-		public ModelAndView cart() {
-			ModelAndView mv=new ModelAndView("page");
-			mv.addObject("title","Cart");
-			mv.addObject("userClickCart",true);
-			
-			return mv;
-		}
+		
 		
 		//view single product
 		
