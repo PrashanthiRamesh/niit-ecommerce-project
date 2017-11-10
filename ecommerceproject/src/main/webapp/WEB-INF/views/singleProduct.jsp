@@ -11,7 +11,8 @@
 		<div class="col-xs-12">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="${contextRoot }/home">Home</a></li>
-				<li class="breadcrumb-item"><a href="${contextRoot }/show/all/products">Products</a></li>
+				<li class="breadcrumb-item"><a
+					href="${contextRoot }/show/all/products">Products</a></li>
 				<li class="breadcrumb-item active">${product.name}</li>
 			</ol>
 
@@ -45,10 +46,43 @@
 
 		<h6>Quantity: ${product.quantity}</h6>
 
-		<button>
-			<a href="${contextRoot}/cart/add/${product.id}/product"><span
+		<c:choose>
+
+			<c:when test="${product.quantity < 1}">
+
+				<h6>
+					Qty. Available: <span style="color: red">Out of Stock!</span>
+				</h6>
+
+			</c:when>
+			<c:otherwise>
+
+				<h6>Qty. Available: ${product.quantity}</h6>
+
+			</c:otherwise>
+
+		</c:choose>
+
+		<c:choose>
+
+			<c:when test="${product.quantity < 1}">
+
+				<a href="javascript:void(0)" class="btn btn-success disabled"><strike>
+						<span class="fa fa-shopping-cart"></span>Add to Cart</a>
+
+			</c:when>
+			<c:otherwise>
+
+				<a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-primary"><span
 				class="fa fa-shopping-cart"></span>Add to Cart</a>
-		</button>
+
+
+
+
+			</c:otherwise>
+
+		</c:choose>
+		
 		<button>
 			<a href="${contextRoot}/show/all/products"><span
 				class="fa fa-eye"></span>Back to all Products</a>

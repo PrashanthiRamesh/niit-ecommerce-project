@@ -18,6 +18,7 @@ import niitprash.ecommercebackend.dao.CategoryDAO;
 import niitprash.ecommercebackend.dao.ProductDAO;
 import niitprash.ecommercebackend.dto.Category;
 import niitprash.ecommercebackend.dto.Product;
+import niitprash.ecommerceproject.exception.ProductNotFoundException;
 
 @Controller
 public class PageController {
@@ -89,9 +90,10 @@ public class PageController {
 		//view single product
 		
 		@RequestMapping(value= "/show/{id}/product")
-		public ModelAndView showSinglePage(@PathVariable int id) {
+		public ModelAndView showSinglePage(@PathVariable int id) throws ProductNotFoundException{
 			ModelAndView mv=new ModelAndView("page");
 			Product product=productDAO.get(id);
+			if(product==null) throw new ProductNotFoundException();
 			product.setViews(product.getViews()+1);
 			
 			//update view count
