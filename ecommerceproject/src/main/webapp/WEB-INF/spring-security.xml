@@ -16,7 +16,8 @@
 	</http>
 	<http>
 		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/**" access="hasRole('USER')" />
+		<intercept-url pattern="/**" access="hasRole('ADMIN')" />
+		<!-- <intercept-url pattern="/manage/**" access="hasRole('ADMIN')"/> -->
 		<form-login login-page="/login"/>
 		
 	</http>

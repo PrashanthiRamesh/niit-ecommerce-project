@@ -11,11 +11,8 @@
    ">
 
 	<context:annotation-config />
-	<context:component-scan base-package="niitprash.ecommerceproject.controller" />
-	<context:component-scan base-package="niitprash.ecommercebackend.daoImpl" />
-	<context:component-scan base-package="niitprash.ecommercebackend.dao" />
-	<context:component-scan base-package="niitprash.ecommercebackend.dto" />
-	<context:component-scan base-package="niitprash.ecommercebackend.config" />
+	<context:component-scan base-package="niitprash.ecommerceproject" />
+	<context:component-scan base-package="niitprash.ecommercebackend" />
 
 
 	<bean id="viewResolver"
