@@ -108,6 +108,11 @@
 		<!-- Datatable bootstrap -->
 		<script src="${js}/jquery.dataTables.js"></script>
 		
+		
+		<!-- Bootbox -->
+		<script src="${js}/bootbox.min.js"></script>
+		
+		
 		<!-- JavaScript for active menu -->
 		<script src="${js}/myapp.js"></script>
 	</div>

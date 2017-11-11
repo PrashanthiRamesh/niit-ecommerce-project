@@ -1,4 +1,6 @@
- 
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <div class="container">
 
@@ -17,14 +19,15 @@
 
 			<div class="card card-inverse card-danger text-center">
 				<div class="card-header">
- 
+
 					<h4>Product Management</h4>
 
 				</div>
 				<div class="card-block">
 
 					<sf:form class="form-horizontal" modelAttribute="product"
-						action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
+						action="${contextRoot}/manage/products" method="POST"
+						enctype="multipart/form-data">
 
 						<div class="form-group">
 
@@ -60,18 +63,18 @@
 
 								<sf:input type="number" path="unitPrice" id="unitPrice"
 									placeholder="Enter Unit Price" class="form-control" />
-								<sf:errors path="unitPrice" cssClass="help-block" element="em"/>
+								<sf:errors path="unitPrice" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
-						
+
 						<div class="form-group">
 							<div class="col-md-8">
 
 								<sf:input type="file" path="file" id="file" class="form-control" />
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<div class="col-md-8">
 
@@ -113,5 +116,51 @@
 		</div>
 
 	</div>
-
+<div class="row">
+<h3>Available Products</h3>
+<hr>
 </div>
+	<div class="row">
+
+	
+		<div class="col-xs-12">
+
+			<div style="overflow: auto">
+
+				<table id="adminProductsTable"
+					class="table table-striped table-bordered">
+					<thead>
+
+						<tr>
+
+							<th>ID</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>Quantity</th>
+							<th>Unit Price</th>
+							<th>Active</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+
+
+					
+					<tfoot>
+
+						<tr>
+
+							<th>ID</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>Quantity</th>
+							<th>Unit Price</th>
+							<th>Active</th>
+							<th>Edit</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>

@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import niitprash.ecommercebackend.dao.CategoryDAO;
@@ -34,6 +36,7 @@ public class ManagementController {
 	private ProductDAO productDAO;
 	
 	private static final Logger logger=LoggerFactory.logger(ManagementController.class);
+	
 	@RequestMapping(value="/products", method=RequestMethod.GET)
 	public ModelAndView showManageProducts(@RequestParam(name="operation", required=false) String operation) {
 		ModelAndView mv=new ModelAndView("page");
@@ -51,10 +54,18 @@ public class ManagementController {
 		return mv;
 	}
 	
-	@ModelAttribute("categories")
-	public List<Category> getCategories(){
-		 return categoryDAO.list();
+	@RequestMapping(value="{id}/product", method=RequestMethod.GET)
+	public ModelAndView showEditProduct(@PathVariable int id) {
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("userClickManageProducts", true);
+		mv.addObject("title","Manage Products");
+		Product nProduct=productDAO.get(id);
+		
+		mv.addObject("product",nProduct);
+		
+		return mv;
 	}
+	
 	
 	//POST - to store products in db
 	@RequestMapping(value="/products", method=RequestMethod.POST)
@@ -70,7 +81,13 @@ public class ManagementController {
 			return "page";
 		}
 		logger.info(mProduct.toString());
-		productDAO.add(mProduct);
+		
+		if(mProduct.getId()==0) {
+			productDAO.add(mProduct);
+		}else {
+			productDAO.update(mProduct);
+		}
+		
 		
 		if(!mProduct.getFile().getOriginalFilename().equals("")) {
 			FileUploadUtility.uploadFile(request,  mProduct.getFile(), mProduct.getCode());
@@ -78,4 +95,20 @@ public class ManagementController {
 	
 		return "redirect:/manage/products?operation=product";
 	}
+	
+	@RequestMapping(value = "/product/{id}/activation", method=RequestMethod.POST)
+	@ResponseBody
+	public String handleProductActivation(@PathVariable int id) {		
+		Product product = productDAO.get(id);
+		boolean isActive = product.isActive();
+		product.setActive(!product.isActive());
+		productDAO.update(product);		
+		return (isActive)? "Product Dectivated Successfully with id!" + product.getId() : "Product Activated Successfully with product id" +product.getId();
+	}
+	
+	@ModelAttribute("categories")
+	public List<Category> getCategories(){
+		 return categoryDAO.list();
+	}
+	
 }
