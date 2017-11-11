@@ -14,13 +14,16 @@
 	<http pattern="/resources/**" security="none">
 	
 	</http>
-	<http>
+	
+	<http pattern="/home" security="none"/>
+	
+	<!-- <http>
 		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/**" access="hasRole('ADMIN')" />
-		<!-- <intercept-url pattern="/manage/**" access="hasRole('ADMIN')"/> -->
+		<intercept-url pattern="/manage/**" access="hasRole('ADMIN')"/>
 		<form-login login-page="/login"/>
 		
-	</http>
+	</http> -->
 
 
 
