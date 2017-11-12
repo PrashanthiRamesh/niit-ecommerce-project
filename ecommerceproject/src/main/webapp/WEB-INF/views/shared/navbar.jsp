@@ -29,9 +29,7 @@
 				<li class="nav-item" id="listProducts"><a class="nav-link"
 					href="${contextRoot }/show/all/products">Products</a></li>
 
-				<li class="nav-item" id="cart"><a class="nav-link"
-					href="${contextRoot }/show/cart">Cart</a></li>
-
+	
 				<security:authorize access="hasAuthority('ADMIN')">
 					<li class="nav-item" id="manageProducts"><a class="nav-link"
 						href="${contextRoot }/manage/products">Manage Products</a></li>
@@ -50,7 +48,7 @@
 
 
 				<security:authorize access="isAuthenticated()">
-					<li class="dropdown" id="userModel"><a
+					<li class="dropdown" id="userCart"><a
 						class="btn btn-default dropdown-toggle" href="javascript:void(0)"
 						id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="true"> ${userModel.fullName} <span
@@ -66,7 +64,7 @@
 								<li role="separator" class="divider"></li>
 							</security:authorize>
 
-							<li id="logout"><a href="${contextRoot}/logout">Logout</a></li>
+							<li id="logout"><a href="${contextRoot}/perform-logout">Logout</a></li>
 						</ul></li>
 
 				</security:authorize>

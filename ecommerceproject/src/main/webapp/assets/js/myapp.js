@@ -12,13 +12,14 @@ $(function() {
 		$('#listProducts').addClass('active');
 
 		break;
-	case 'Cart':
-		$('#cart').addClass('active');
-
-		break;
-
+	
 	case 'Manage Products':
 		$('#manageProducts').addClass('active');
+
+		break;
+		
+	case 'Cart':
+		$('#userCart').addClass('active');
 
 		break;
 	default:
@@ -290,5 +291,41 @@ $(function() {
 					}
 				});
 	}
+	
+	
+	
+	//refresh cart
+	
+	
+	$('button[name="refreshCart"]').click(function(){
+		
+		var cartLineId=$(this).attr('value');
+		var countElement=$('#count_'+cartLineId);
+		
+		var originalCount=countElement.attr('value');
+		var currentCount=countElement.val();
+		
+		if(currentCount !== originalCount){
+			
+			if(currentCount<1 || currentCount>3){
+				countElement.val(originalCount);
+				bootbox.alert({
+					size: 'medium',
+					title: 'Error',
+					message: 'Product count should be between 1 and 3 (inclusive)'
+					
+				});
+				
+				
+			}else{
+				var updateUrl=window.contextRoot+'/cart/'+ cartLineId + '/update?count='+ currentCount;
+				window.location.href=updateUrl;
+			}
+			
+		}
+		
+	});
+	
+	
 
 });

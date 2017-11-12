@@ -26,6 +26,9 @@
 					</tr>
 				</thead>
 				<tbody>
+				
+				
+					
 					<c:forEach items="${cartLines}" var="cartLine">
 					<c:if test="${cartLine.available == false}">
 						<c:set var="availableCount" value="${availableCount - 1}"/>
