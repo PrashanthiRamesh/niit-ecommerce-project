@@ -2,6 +2,10 @@
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet">
 
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+
+
 <div class="container">
 
 	<!-- Breadcrumb -->
@@ -63,26 +67,39 @@
 
 		</c:choose>
 
-		<c:choose>
+		<security:authorize access="hasAuthority('USER')">
 
-			<c:when test="${product.quantity < 1}">
+			<c:choose>
 
-				<a href="javascript:void(0)" class="btn btn-success disabled"><strike>
-						<span class="fa fa-shopping-cart"></span>Add to Cart</a>
+				<c:when test="${product.quantity < 1}">
 
-			</c:when>
-			<c:otherwise>
+					<a href="javascript:void(0)" class="btn btn-success disabled"><strike>
+							<span class="fa fa-shopping-cart"></span>Add to Cart</a>
 
-				<a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-primary"><span
-				class="fa fa-shopping-cart"></span>Add to Cart</a>
+				</c:when>
+				<c:otherwise>
+
+					<a href="${contextRoot}/cart/add/${product.id}/product"
+						class="btn btn-primary"><span class="fa fa-shopping-cart"></span>Add
+						to Cart</a>
 
 
 
 
-			</c:otherwise>
+				</c:otherwise>
 
-		</c:choose>
+			</c:choose>
+		</security:authorize>
 		
+		<security:authorize access="hasAuthority('ADMIN')">
+		
+					<a href="${contextRoot}/manage/${product.id}/product"
+						class="btn btn-danger"><span class="fa fa-pencil"></span>Edit
+						</a>
+
+		
+		
+		</security:authorize>
 		<button>
 			<a href="${contextRoot}/show/all/products"><span
 				class="fa fa-eye"></span>Back to all Products</a>

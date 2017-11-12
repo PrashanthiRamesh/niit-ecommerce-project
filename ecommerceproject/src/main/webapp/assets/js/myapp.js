@@ -120,13 +120,25 @@ $(function() {
 										str += '<a href ="javascript:void(0)" class="btn btn-success disabled"><span class="fa fa-shopping-cart"></span></a>'
 
 									} else {
-
-										str += '<a href ="'
+										
+										
+										if(userRole == 'ADMIN'){
+											str += '<a href ="'
+												+ window.contextRoot
+												+ '/manage/'
+												+ data
+												+ '/product" class="btn btn-danger"><span class="fa fa-pencil"></span></a>'
+									
+										}else{
+											str += '<a href ="'
 												+ window.contextRoot
 												+ '/cart/add/'
 												+ data
 												+ '/product" class="btn btn-success"><span class="fa fa-shopping-cart"></span></a>'
-									}
+									
+										}
+
+								}
 									return str
 								}
 							}
