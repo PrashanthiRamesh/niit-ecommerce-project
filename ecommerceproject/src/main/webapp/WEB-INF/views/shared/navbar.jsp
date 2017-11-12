@@ -1,3 +1,6 @@
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
 		<a class="navbar-brand" href="${contextRoot }">Prash Botique</a>
@@ -37,7 +40,23 @@
 				<li class="nav-item" id="login"><a class="nav-link"
 					href="${contextRoot}/login">Login</a></li>
 
-
+				<li class="dropdown" id="userModel">
+						  <a class="btn btn-default dropdown-toggle" href="javascript:void(0)" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    ${userModel.fullName}
+						    <span class="caret"></span>
+						  </a>
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		                       <li id="cart">
+			                        <a href="${contextRoot}/cart/show">
+			                        	<span class="fa fa-shopping-cart"></span>&#160;<span >${userModel.cart.cartLines}</span> - &#8377; ${userModel.cart.grandTotal}
+			                        </a>
+			                    </li>		     
+			                	<li role="separator" class="divider"></li>	                                   
+		                   <li id="logout">
+		                        <a href="${contextRoot}/logout">Logout</a>
+		                    </li>                    			    	
+						  </ul>		
+						</li>    	
 			</ul>
 
 
