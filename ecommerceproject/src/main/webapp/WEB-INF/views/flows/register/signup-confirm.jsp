@@ -15,19 +15,19 @@
 
 			<div class="card-block">
 				<div class="text-center">
-					<h3>
+					<p>
 						Name : <strong>${registerModel.user.firstName}
 							${registerModel.user.lastName}</strong>
-					</h3>
-					<h4>
+					</p>
+					<p>
 						Email : <strong>${registerModel.user.email}</strong>
-					</h4>
-					<h4>
+					</p>
+					<p>
 						Contact : <strong>${registerModel.user.contactNumber}</strong>
-					</h4>
-					<h4>
+					</p>
+					<p>
 						Role : <strong>${registerModel.user.role}</strong>
-					</h4>
+					</p>
 					<p>
 						<a href="${flowExecutionUrl}&_eventId_personal"
 							class="btn btn-primary">Edit</a>
@@ -42,13 +42,12 @@
 
 	<div class="col-sm-6">
 
-		<div class="panel panel-primary">
-
-			<div class="panel-heading">
+	<div class="card card-inverse card-danger text-center">
+			<div class="card-header">
 				<h4>Billing Address</h4>
 			</div>
 
-			<div class="panel-body">
+			<div class="card-block">
 				<div class="text-center">
 					<p>${registerModel.billing.addressLineOne},</p>
 					<p>${registerModel.billing.addressLineTwo},</p>
@@ -75,7 +74,7 @@
 
 		<div class="text-center">
 
-			<a href="${flowExecutionUrl}&_eventId_success"
+			<a href="${flowExecutionUrl}&_eventId_submit"
 				class="btn btn-lg btn-primary">Confirm</a>
 
 		</div>

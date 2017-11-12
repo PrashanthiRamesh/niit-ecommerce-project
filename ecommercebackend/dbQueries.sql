@@ -103,16 +103,16 @@ INSERT INTO category (name, description,image_url,is_active) VALUES ('Casual Wea
 -- adding three users 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Arya', 'Stark', 'ADMIN', true, '$2a$06$ORtBskA2g5Wg0HDgRE5ZsOQNDHUZSdpJqJ2.PGXv0mKyEvLnKP7SW', 'aryastark@gmail.com', '9584756321');
+VALUES ('Arya', 'Stark', 'ADMIN', true, '123', 'aryastark@gmail.com', '9584756321');
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Jon', 'Snow', 'SUPPLIER', true, '$2a$06$bzYMivkRjSxTK2LPD8W4te6jjJa795OwJR1Of5n95myFsu3hgUnm6', 'jonsnow@gmail.com', '9563258745');
+VALUES ('Jon', 'Snow', 'SUPPLIER', true, '123', 'jonsnow@gmail.com', '9563258745');
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Dany', 'Targarean', 'SUPPLIER', true, '$2a$06$i1dLNlXj2uY.UBIb9kUcAOxCigGHUZRKBtpRlmNtL5xtgD6bcVNOK', 'danytargarean@gmail.com', '7589642563');
+VALUES ('Dany', 'Targarean', 'SUPPLIER', true, '123', 'danytargarean@gmail.com', '7589642563');
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Cercei', 'Lannister', 'USER', true, '$2a$06$4mvvyO0h7vnUiKV57IW3oudNEaKPpH1xVSdbie1k6Ni2jfjwwminq', 'cerceilannister@gmail.com', '9568741236');
+VALUES ('Cercei', 'Lannister', 'USER', true, '123', 'cerceilannister@gmail.com', '9568741236');
 
 -- adding five products
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)

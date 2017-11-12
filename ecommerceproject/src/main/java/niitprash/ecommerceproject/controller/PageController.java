@@ -126,5 +126,15 @@ public class PageController {
 			return "redirect:/login?logout";
 		}
 		
+		@RequestMapping(value= {"/access-denied"})
+		public ModelAndView accessDenied() {
+			ModelAndView mv=new ModelAndView("error");
+			mv.addObject("title","403- Access Denied");
+			mv.addObject("errorTitle","AHA ! Caught You ");
+			mv.addObject("errorDescription","Not authorised");
+			
+			return mv;
+		}
+		
 		
 }
